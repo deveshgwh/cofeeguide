@@ -1,172 +1,330 @@
-<div class="coffee-grid">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coffee Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #fdfaf6;
+      color: #333;
+    }
 
-  <!-- Espresso -->
-  <div class="coffee-card">
-    <div class="cup-illustration">
-      <div class="cup-body">
-        <div class="coffee-layer espresso" style="height: 50%; bottom: 0;"></div>
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #3d2817;
+      color: #fff;
+    }
+
+    header h1 {
+      margin-bottom: 15px;
+    }
+
+    .scroll-button {
+      display: inline-block;
+      background-color: #c4a57b;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .scroll-button:hover {
+      background-color: #a78966;
+    }
+
+    .coffee-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .coffee-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .coffee-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .cup-illustration {
+      position: relative;
+      width: 80px;
+      height: 100px;
+      margin: 0 auto 15px;
+    }
+
+    .cup-body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border: 2px solid #3d2817;
+      border-radius: 0 0 40px 40px;
+      overflow: hidden;
+    }
+
+    .cup-body.cup-tall {
+      height: 130px;
+    }
+
+    .cup-handle {
+      position: absolute;
+      right: -15px;
+      top: 25%;
+      width: 25px;
+      height: 40px;
+      border: 3px solid #3d2817;
+      border-radius: 50%;
+    }
+
+    .coffee-layer {
+      position: absolute;
+      width: 100%;
+    }
+
+    .espresso { background-color: #3d2817; }
+    .water { background-color: #6b8a9e; }
+    .steamed-milk { background-color: #c4a57b; }
+    .milk-foam { background-color: #f5e6d3; }
+
+    .coffee-name {
+      margin: 10px 0 5px;
+      text-transform: capitalize;
+    }
+
+    .coffee-description {
+      font-size: 0.9em;
+      color: #555;
+    }
+
+    .ingredients {
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .ingredient-bar {
+      margin-bottom: 5px;
+    }
+
+    .ingredient-label {
+      font-weight: bold;
+      display: inline-block;
+      width: 80px;
+      text-transform: capitalize;
+    }
+
+    .ingredient-visual {
+      display: inline-block;
+      width: calc(100% - 90px);
+      background-color: #eee;
+      height: 10px;
+      border-radius: 5px;
+      vertical-align: middle;
+    }
+
+    .ingredient-fill {
+      height: 100%;
+      border-radius: 5px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with scroll button -->
+  <header>
+    <h1>Coffee Guide ☕</h1>
+    <a href="#coffee-section" class="scroll-button">View Coffees</a>
+  </header>
+
+  <!-- Coffee Grid -->
+  <div id="coffee-section" class="coffee-grid">
+
+    <!-- Espresso -->
+    <div class="coffee-card">
+      <div class="cup-illustration">
+        <div class="cup-body">
+          <div class="coffee-layer espresso" style="height: 50%; bottom: 0;"></div>
+        </div>
+        <div class="cup-handle"></div>
       </div>
-      <div class="cup-handle"></div>
-    </div>
-    <h2 class="coffee-name">Espresso</h2>
-    <p class="coffee-description">Pure concentrated coffee, extracted under pressure.</p>
-    <div class="ingredients">
-      <div class="ingredient-bar">
-        <span class="ingredient-label">Espresso</span>
-        <div class="ingredient-visual">
-          <div class="ingredient-fill" style="width: 100%; background: #3d2817;"></div>
+      <h2 class="coffee-name">Espresso</h2>
+      <p class="coffee-description">Pure concentrated coffee, extracted under pressure.</p>
+      <div class="ingredients">
+        <div class="ingredient-bar">
+          <span class="ingredient-label">Espresso</span>
+          <div class="ingredient-visual">
+            <div class="ingredient-fill" style="width: 100%; background: #3d2817;"></div>
+          </div>
         </div>
       </div>
     </div>
+
+    <!-- Americano -->
+    <div class="coffee-card">
+      <div class="cup-illustration">
+        <div class="cup-body">
+          <div class="coffee-layer espresso" style="height: 30%; bottom: 0;"></div>
+          <div class="coffee-layer water" style="height: 70%; bottom: 30%;"></div>
+        </div>
+        <div class="cup-handle"></div>
+      </div>
+      <h2 class="coffee-name">Americano</h2>
+      <p class="coffee-description">Espresso with added water for a milder taste.</p>
+      <div class="ingredients">
+        <div class="ingredient-bar">
+          <span class="ingredient-label">Espresso</span>
+          <div class="ingredient-visual">
+            <div class="ingredient-fill" style="width: 30%; background: #3d2817;"></div>
+          </div>
+        </div>
+        <div class="ingredient-bar">
+          <span class="ingredient-label">Water</span>
+          <div class="ingredient-visual">
+            <div class="ingredient-fill" style="width: 70%; background: #6b8a9e;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Macchiato -->
+    <div class="coffee-card">
+      <div class="cup-illustration">
+        <div class="cup-body">
+          <div class="coffee-layer espresso" style="height: 75%; bottom: 0;"></div>
+          <div class="coffee-layer milk-foam" style="height: 25%; bottom: 75%;"></div>
+        </div>
+        <div class="cup-handle"></div>
+      </div>
+      <h2 class="coffee-name">Macchiato</h2>
+      <p class="coffee-description">Espresso “marked” with a small amount of foamed milk.</p>
+      <div class="ingredients">
+        <div class="ingredient-bar">
+          <span class="ingredient-label">Espresso</span>
+          <div class="ingredient-visual">
+            <div class="ingredient-fill" style="width: 75%; background: #3d2817;"></div>
+          </div>
+        </div>
+        <div class="ingredient-bar">
+          <span class="ingredient-label">Foam</span>
+          <div class="ingredient-visual">
+            <div class="ingredient-fill" style="width: 25%; background: #f5e6d3;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flat White -->
+    <div class="coffee-card">
+      <div class="cup-illustration">
+        <div class="cup-body">
+          <div class="coffee-layer espresso" style="height: 30%; bottom: 0;"></div>
+          <div class="coffee-layer steamed-milk" style="height: 70%; bottom: 30%;"></div>
+        </div>
+        <div class="cup-handle"></div>
+      </div>
+      <h2 class="coffee-name">Flat White</h2>
+      <p class="coffee-description">Smooth espresso with velvety steamed milk.</p>
+      <div class="ingredients">
+        <div class="ingredient-bar">
+          <span class="ingredient-label">Espresso</span>
+          <div class="ingredient-visual">
+            <div class="ingredient-fill" style="width: 30%; background: #3d2817;"></div>
+          </div>
+        </div>
+        <div class="ingredient-bar">
+          <span class="ingredient-label">Milk</span>
+          <div class="ingredient-visual">
+            <div class="ingredient-fill" style="width: 70%; background: #c4a57b;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cappuccino -->
+    <div class="coffee-card">
+      <div class="cup-illustration">
+        <div class="cup-body">
+          <div class="coffee-layer espresso" style="height: 33%; bottom: 0;"></div>
+          <div class="coffee-layer steamed-milk" style="height: 33%; bottom: 33%;"></div>
+          <div class="coffee-layer milk-foam" style="height: 34%; bottom: 66%;"></div>
+        </div>
+        <div class="cup-handle"></div>
+      </div>
+      <h2 class="coffee-name">Cappuccino</h2>
+      <p class="coffee-description">Equal parts espresso, steamed milk, and milk foam.</p>
+      <div class="ingredients">
+        <div class="ingredient-bar">
+          <span class="ingredient-label">Espresso</span>
+          <div class="ingredient-visual">
+            <div class="ingredient-fill" style="width: 33%; background: #3d2817;"></div>
+          </div>
+        </div>
+        <div class="ingredient-bar">
+          <span class="ingredient-label">Milk</span>
+          <div class="ingredient-visual">
+            <div class="ingredient-fill" style="width: 33%; background: #c4a57b;"></div>
+          </div>
+        </div>
+        <div class="ingredient-bar">
+          <span class="ingredient-label">Foam</span>
+          <div class="ingredient-visual">
+            <div class="ingredient-fill" style="width: 34%; background: #f5e6d3;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Caffè Latte -->
+    <div class="coffee-card">
+      <div class="cup-illustration">
+        <div class="cup-body cup-tall">
+          <div class="coffee-layer espresso" style="height: 20%; bottom: 0;"></div>
+          <div class="coffee-layer steamed-milk" style="height: 75%; bottom: 20%;"></div>
+          <div class="coffee-layer milk-foam" style="height: 5%; bottom: 95%;"></div>
+        </div>
+        <div class="cup-handle"></div>
+      </div>
+      <h2 class="coffee-name">Caffè Latte</h2>
+      <p class="coffee-description">Espresso with steamed milk and a light layer of foam.</p>
+      <div class="ingredients">
+        <div class="ingredient-bar">
+          <span class="ingredient-label">Espresso</span>
+          <div class="ingredient-visual">
+            <div class="ingredient-fill" style="width: 20%; background: #3d2817;"></div>
+          </div>
+        </div>
+        <div class="ingredient-bar">
+          <span class="ingredient-label">Milk</span>
+          <div class="ingredient-visual">
+            <div class="ingredient-fill" style="width: 75%; background: #c4a57b;"></div>
+          </div>
+        </div>
+        <div class="ingredient-bar">
+          <span class="ingredient-label">Foam</span>
+          <div class="ingredient-visual">
+            <div class="ingredient-fill" style="width: 5%; background: #f5e6d3;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
-
-  <!-- Americano -->
-  <div class="coffee-card">
-    <div class="cup-illustration">
-      <div class="cup-body">
-        <div class="coffee-layer espresso" style="height: 30%; bottom: 0;"></div>
-        <div class="coffee-layer water" style="height: 70%; bottom: 30%;"></div>
-      </div>
-      <div class="cup-handle"></div>
-    </div>
-    <h2 class="coffee-name">Americano</h2>
-    <p class="coffee-description">Espresso with added water for a milder taste.</p>
-    <div class="ingredients">
-      <div class="ingredient-bar">
-        <span class="ingredient-label">Espresso</span>
-        <div class="ingredient-visual">
-          <div class="ingredient-fill" style="width: 30%; background: #3d2817;"></div>
-        </div>
-      </div>
-      <div class="ingredient-bar">
-        <span class="ingredient-label">Water</span>
-        <div class="ingredient-visual">
-          <div class="ingredient-fill" style="width: 70%; background: #6b8a9e;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Macchiato -->
-  <div class="coffee-card">
-    <div class="cup-illustration">
-      <div class="cup-body">
-        <div class="coffee-layer espresso" style="height: 75%; bottom: 0;"></div>
-        <div class="coffee-layer milk-foam" style="height: 25%; bottom: 75%;"></div>
-      </div>
-      <div class="cup-handle"></div>
-    </div>
-    <h2 class="coffee-name">Macchiato</h2>
-    <p class="coffee-description">Espresso “marked” with a small amount of foamed milk.</p>
-    <div class="ingredients">
-      <div class="ingredient-bar">
-        <span class="ingredient-label">Espresso</span>
-        <div class="ingredient-visual">
-          <div class="ingredient-fill" style="width: 75%; background: #3d2817;"></div>
-        </div>
-      </div>
-      <div class="ingredient-bar">
-        <span class="ingredient-label">Foam</span>
-        <div class="ingredient-visual">
-          <div class="ingredient-fill" style="width: 25%; background: #f5e6d3;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Flat White -->
-  <div class="coffee-card">
-    <div class="cup-illustration">
-      <div class="cup-body">
-        <div class="coffee-layer espresso" style="height: 30%; bottom: 0;"></div>
-        <div class="coffee-layer steamed-milk" style="height: 70%; bottom: 30%;"></div>
-      </div>
-      <div class="cup-handle"></div>
-    </div>
-    <h2 class="coffee-name">Flat White</h2>
-    <p class="coffee-description">Smooth espresso with velvety steamed milk.</p>
-    <div class="ingredients">
-      <div class="ingredient-bar">
-        <span class="ingredient-label">Espresso</span>
-        <div class="ingredient-visual">
-          <div class="ingredient-fill" style="width: 30%; background: #3d2817;"></div>
-        </div>
-      </div>
-      <div class="ingredient-bar">
-        <span class="ingredient-label">Milk</span>
-        <div class="ingredient-visual">
-          <div class="ingredient-fill" style="width: 70%; background: #c4a57b;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Cappuccino -->
-  <div class="coffee-card">
-    <div class="cup-illustration">
-      <div class="cup-body">
-        <div class="coffee-layer espresso" style="height: 33%; bottom: 0;"></div>
-        <div class="coffee-layer steamed-milk" style="height: 33%; bottom: 33%;"></div>
-        <div class="coffee-layer milk-foam" style="height: 34%; bottom: 66%;"></div>
-      </div>
-      <div class="cup-handle"></div>
-    </div>
-    <h2 class="coffee-name">Cappuccino</h2>
-    <p class="coffee-description">Equal parts espresso, steamed milk, and milk foam.</p>
-    <div class="ingredients">
-      <div class="ingredient-bar">
-        <span class="ingredient-label">Espresso</span>
-        <div class="ingredient-visual">
-          <div class="ingredient-fill" style="width: 33%; background: #3d2817;"></div>
-        </div>
-      </div>
-      <div class="ingredient-bar">
-        <span class="ingredient-label">Milk</span>
-        <div class="ingredient-visual">
-          <div class="ingredient-fill" style="width: 33%; background: #c4a57b;"></div>
-        </div>
-      </div>
-      <div class="ingredient-bar">
-        <span class="ingredient-label">Foam</span>
-        <div class="ingredient-visual">
-          <div class="ingredient-fill" style="width: 34%; background: #f5e6d3;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Caffè Latte -->
-  <div class="coffee-card">
-    <div class="cup-illustration">
-      <div class="cup-body cup-tall">
-        <div class="coffee-layer espresso" style="height: 20%; bottom: 0;"></div>
-        <div class="coffee-layer steamed-milk" style="height: 75%; bottom: 20%;"></div>
-        <div class="coffee-layer milk-foam" style="height: 5%; bottom: 95%;"></div>
-      </div>
-      <div class="cup-handle"></div>
-    </div>
-    <h2 class="coffee-name">Caffè Latte</h2>
-    <p class="coffee-description">Espresso with steamed milk and a light layer of foam.</p>
-    <div class="ingredients">
-      <div class="ingredient-bar">
-        <span class="ingredient-label">Espresso</span>
-        <div class="ingredient-visual">
-          <div class="ingredient-fill" style="width: 20%; background: #3d2817;"></div>
-        </div>
-      </div>
-      <div class="ingredient-bar">
-        <span class="ingredient-label">Milk</span>
-        <div class="ingredient-visual">
-          <div class="ingredient-fill" style="width: 75%; background: #c4a57b;"></div>
-        </div>
-      </div>
-      <div class="ingredient-bar">
-        <span class="ingredient-label">Foam</span>
-        <div class="ingredient-visual">
-          <div class="ingredient-fill" style="width: 5%; background: #f5e6d3;"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
+</body>
+</html>
